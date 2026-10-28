@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Himanshu 🎂</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #16002c, #41106b, #09051c);
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.card {
+  width: 90%;
+  max-width: 390px;
+  padding: 35px 22px;
+  text-align: center;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 0 40px #c026ff55;
+  backdrop-filter: blur(12px);
+  animation: appear 1s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.cake { font-size: 75px; animation: bounce 1.5s infinite; }
+
+h1 {
+  margin: 18px 0;
+  color: #ffd166;
+  font-size: 30px;
+  text-shadow: 0 0 15px #ffb703;
+}
+
+h2 { color: #ff8fab; font-size: 25px; margin-bottom: 15px; }
+
+p { line-height: 1.7; font-size: 16px; color: #f4eaff; }
+
+button {
+  margin-top: 25px;
+  padding: 13px 23px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff4d8d, #ffbd59);
+  color: #24002e;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+button:hover { transform: scale(1.04); box-shadow: 0 0 18px #ff8fab66; }
+button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+
+.balloon {
+  position: fixed;
+  bottom: -120px;
+  font-size: 45px;
+  animation: float 8s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+.balloon:nth-of-type(1) { left: 10%; animation-delay: 1s; }
+.balloon:nth-of-type(2) { left: 80%; animation-delay: 3s; }
+.balloon:nth-of-type(3) { left: 30%; animation-delay: 5s; }
+.balloon:nth-of-type(4) { left: 65%; animation-delay: 2s; }
+
+.surprise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(8, 0, 20, 0.88);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+.surprise-overlay.show { display: flex; }
+
+.surprise-card {
+  width: 100%;
+  max-width: 350px;
+  padding: 30px 22px;
+  text-align: center;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #351052, #170725);
+  border: 1px solid #ffd16699;
+  box-shadow: 0 0 40px #c026ff55;
+  animation: cardOpen .65s ease both;
+  margin: auto;
+}
+.surprise-card h2 { color: #ffd166; margin: 15px 0; }
+.surprise-card p { line-height: 1.8; }
+.heart { font-size: 48px; animation: heartbeat 1.3s ease-in-out infinite; }
+.close-btn {
+  margin-top: 22px;
+  padding: 11px 22px;
+  border: 1px solid #ffd166;
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  font-size: 15px;
+}
+.close-btn:hover { background: rgba(255,255,255,.08); }
+
+@keyframes float { to { transform: translateY(-120vh) rotate(20deg); } }
+@keyframes bounce { 50% { transform: translateY(-10px) rotate(4deg); } }
+@keyframes appear {
+  from { opacity: 0; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cardOpen {
+  from { opacity: 0; transform: scale(.65) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+
+<main class="card">
+  <div class="cake">🎂</div>
+  <h1>Happy Birthday!</h1>
+  <h2>🎉 Himanshu 🎉</h2>
+  <p>
+    May your birthday bring you endless happiness,
+    lots of success, beautiful memories,
+    and all the things your heart wishes for.
+  </p>
+  <button type="button" onclick="showWish()">Open Your Surprise 🎁</button>
+</main>
+
+<div class="surprise-overlay" id="surprise" role="dialog" aria-modal="true" aria-labelledby="surprise-title" aria-hidden="true">
+  <div class="surprise-card">
+    <div class="heart" aria-hidden="true">💖</div>
+    <h2 id="surprise-title">Happy Birthday, Himanshu! 🎂</h2>
+    <p>
+      Keep smiling, keep shining,<br>
+      and make every moment count! ✨
+      <br><br>
+      May all your dreams come true
+      and happiness always stay with you.
+      <br><br>
+      Lots of love &amp; best wishes! ❤️
+    </p>
+    <button class="close-btn" type="button" onclick="closeWish()">Close ❤️</button>
+  </div>
+</div>
+
+<script>
+const surprise = document.getElementById("surprise");
+
+function showWish() {
+  surprise.classList.add("show");
+  surprise.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  surprise.querySelector(".close-btn").focus();
+}
+
+function closeWish() {
+  surprise.classList.remove("show");
+  surprise.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  document.querySelector(".card button").focus();
+}
+
+surprise.addEventListener("click", function(event) {
+  if (event.target === surprise) closeWish();
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape" && surprise.classList.contains("show")) {
+    closeWish();
+  }
+});
+</script>
+</body>
+</html>
